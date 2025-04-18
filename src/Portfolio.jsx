@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code, Monitor, Layers, Award } from 'lucide-react';
+import { Github, Linkedin, Mail, Monitor, Layers, Code } from 'lucide-react';
 import foxdash from "./assets/foxdash.png";
+import ecommerce from "./assets/ecommerce.png";
+import taskmanager from "./assets/taskmanager.png";
+
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('about');
 
   const projects = [
     {
-      title: "FoxDash ",
+      title: "FoxDash",
       image: foxdash,
       description: "A developer dashboard for all your needs",
-      tags: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Redux", "Cloudinery", "Google Calender", "Google Auth",, "Github Auth"],
+      tags: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Redux", "Cloudinary", "Google Calendar", "Google Auth", "GitHub Auth"],
     },
     {
       title: "E-Commerce Platform",
+      image: ecommerce, // Adding the e-commerce image
       description: "Built a full-stack e-commerce platform using React, Node.js, and MongoDB",
       tags: ["React", "Node.js", "MongoDB", "Redux"],
     },
     {
       title: "Task Management App",
+      image: taskmanager, // Adding the taskmanager image
       description: "Created a Kanban-style task management application",
       tags: ["React", "TypeScript", "Material-UI", "Redux"],
     }
@@ -38,7 +43,7 @@ const Portfolio = () => {
           <div className="flex gap-4">
             <a href="https://github.com/monikawebdev" className="hover:text-blue-200 transition-colors"><Github size={20} /></a>
             <a href="https://www.linkedin.com/in/monikapaldevs" className="hover:text-blue-200 transition-colors"><Linkedin size={20} /></a>
-            <a  href="mailto:monikapal0216@gmail.com"  className="hover:text-blue-200 transition-colors"><Mail size={20} /></a>
+            <a href="mailto:monikapal0216@gmail.com" className="hover:text-blue-200 transition-colors"><Mail size={20} /></a>
           </div>
         </nav>
         
@@ -84,7 +89,7 @@ const Portfolio = () => {
             {projects.map((project, index) => (
               <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="bg-gray-200 md:h-48">
-                  <img src={project.image} alt="" />
+                  {project.image && <img src={project.image} alt={project.title} className="w-full h-full object-cover" />}
                 </div>
                 <div className="p-6 pt-12">
                   <h4 className="text-xl font-semibold mb-2">{project.title}</h4>
